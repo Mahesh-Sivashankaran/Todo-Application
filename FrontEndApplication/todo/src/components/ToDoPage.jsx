@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Octokit } from "@octokit/core";
 import { saveAs } from "file-saver"; // Import saveAs from FileSaver.js
 import "../styles/ToDoPage.css";
-
-const octokit = new Octokit({
-  auth: "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",
-}); // Replace 'YOUR_GITHUB_TOKEN' with your GitHub token
 
 const ToDoPage = () => {
   const navigate = useNavigate();
