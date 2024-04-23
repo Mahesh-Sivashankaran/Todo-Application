@@ -96,33 +96,9 @@ const ToDoPage = () => {
 
   const exportAsGist = async () => {
     const markdownContent = await generateMarkdown();
-
-    try {
-      const response = await octokit.request("POST /gists", {
-        description: "Project Summary",
-        public: false,
-        files: {
-          "ProjectSummary.md": {
-            content: markdownContent,
-          },
-        },
-      });
-
-      const gistUrl = response.data.html_url;
-      console.log("Gist created:", gistUrl);
-
-      // Download the gist content and save it locally
-      const gistId = response.data.id;
-      const gistContentResponse = await octokit.request(`GET /gists/${gistId}`);
-      const gistFileContent =
-        gistContentResponse.data.files["ProjectSummary.md"].content;
-
-      // Save the content to local system using FileSaver.js
-      const blob = new Blob([gistFileContent], { type: "text/markdown" });
-      saveAs(blob, "ProjectSummary.md");
-    } catch (error) {
-      console.error("Error creating gist:", error);
-    }
+    // Save the content to local system using FileSaver.js
+    const blob = new Blob([markdownContent], { type: "text/markdown" });
+    saveAs(blob, "ProjectSummary.md");
   };
 
   const generateMarkdown = () => {
@@ -141,7 +117,6 @@ ${pendingTodos.map((todo) => `- [ ] ${todo.description}`).join("\n")}
 ## Completed Todos
 ${completedTodos.map((todo) => `- [X] ${todo.description}`).join("\n")}`;
 
-    // console.log(todos);
     return markdownContent;
   };
 
