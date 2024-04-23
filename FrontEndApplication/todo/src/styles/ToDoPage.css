@@ -1,0 +1,51 @@
+.project-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: center; /* Align all items to the center */
+}
+
+.project-container h2 {
+  margin-top: 0;
+}
+
+.project-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.project-container li {
+  margin-bottom: 10px;
+  padding: 25px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.project-container li > div {
+  display: flex;
+  align-items: center;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.project-container li > div > input {
+  margin-right: 3%;
+}
+
+.project-container li > div > span {
+  width: 350px;
+}
+
+.project-container button {
+  margin-left: 1px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
